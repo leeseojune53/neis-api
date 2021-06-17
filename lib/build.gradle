@@ -1,8 +1,7 @@
 plugins {
     id 'java'
-    id 'signing'
-    id 'java-library'
     id 'maven-publish'
+    id 'signing'
 }
 
 group = 'io.github.leeseojune'
@@ -90,5 +89,5 @@ publishing {
 
 signing {
     useGpgCmd()
-    sign configurations.archives
+    sign(publishing.publications)
 }
