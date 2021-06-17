@@ -16,7 +16,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build packages
-        run: gradle build
+        run: gradle build --stacktrace
       - name: Grant permission to deploy.sh
         run: chmod 755 .github/workflows/commands/deploy.sh
       - name: Publish to the Maven Central Repository
