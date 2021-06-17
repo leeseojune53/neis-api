@@ -1,6 +1,4 @@
 plugins {
-    id 'org.springframework.boot' version '2.5.1'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'java-library'
     id 'maven-publish'
@@ -16,7 +14,6 @@ repositories {
 
 dependencies {
     implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
@@ -62,9 +59,9 @@ publishing {
                 }
 
                 scm {
-                    connection = 'scm:svn:http://foo.googlecode.com/svn/trunk/'
-                    developerConnection = 'scm:svn:https://foo.googlecode.com/svn/trunk/'
-                    url = 'http://foo.googlecode.com/svn/trunk/'
+                    connection = 'scm:svn:http://github.com/'
+                    developerConnection = 'scm:svn:https://github.com/'
+                    url = 'http://github.com/'
                 }
             }
         }
@@ -81,7 +78,7 @@ publishing {
         }
         maven {
             name = "GitHubPackages"
-            url = "https://maven.pkg.github.com/team-xquare/java-utils"
+            url = "https://maven.pkg.github.com/leeseojune53/neis-api"
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
