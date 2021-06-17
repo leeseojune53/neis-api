@@ -1,13 +1,13 @@
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:
-    types: [created]
+    types: [ created ]
 jobs:
   publish:
-    runs-on: ubuntu-latest 
-    permissions: 
+    runs-on: ubuntu-latest
+    permissions:
       contents: read
-      packages: write 
+      packages: write
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java
@@ -21,7 +21,7 @@ jobs:
         run: chmod 755 .github/workflows/commands/deploy.sh
       - name: Publish to the Maven Central Repository
         run: .github/workflows/commands/deploy.sh
-        env: 
+        env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
