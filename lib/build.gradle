@@ -1,11 +1,12 @@
 plugins {
+    id 'signing'
     id 'java'
     id 'java-library'
     id 'maven-publish'
 }
 
-group = 'com.leeseojune'
-version = '0.0.1-SNAPSHOT'
+group = 'io.github.leeseojune'
+version = '0.0.1'
 sourceCompatibility = '11'
 
 repositories {
