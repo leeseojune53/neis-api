@@ -1,8 +1,6 @@
 package com.leeseojune.neisapi.exceptions;
 
-import org.apache.hc.core5.http.HttpException;
-
-public class NeisException extends HttpException {
+public class NeisException extends RuntimeException {
 
     public NeisException() {
         super();
