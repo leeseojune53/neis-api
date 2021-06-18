@@ -4,16 +4,16 @@ plugins {
     id 'signing'
 }
 
-group = 'io.github.leeseojune'
-version = '0.0.1'
-sourceCompatibility = '11'
+group = 'io.github.leeseojune53'
+version = '1.0.2'
+sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+    implementation group: 'org.apache.httpcomponents.client5', name: 'httpclient5-cache', version: '5.1'
 }
 
 test {
