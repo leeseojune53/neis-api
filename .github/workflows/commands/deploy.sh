@@ -22,6 +22,6 @@ gpg --fast-import --no-tty --batch --yes leeseojune53-sign.asc
 
 echo "📦 Publishing..."
 
-gradle publish
+gradle publish --info
 
 echo "✅ Done!"
