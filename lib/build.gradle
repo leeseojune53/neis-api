@@ -4,9 +4,9 @@ plugins {
     id 'signing'
 }
 
-group = 'io.github.leeseojune'
-version = '0.0.1'
-sourceCompatibility = '11'
+group = 'io.github.leeseojune53'
+version = '0.0.13'
+sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
