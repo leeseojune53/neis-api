@@ -16,17 +16,6 @@ repositories {
 dependencies {
 }
 
-test {
-    useJUnitPlatform()
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        html.enabled false
-    }
-}
-
 task javadocJar(type: Jar) {
     archiveClassifier.set('javadoc')
     from javadoc.destinationDir
@@ -97,4 +86,15 @@ publishing {
 signing {
     useGpgCmd()
     sign(publishing.publications)
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
 }
