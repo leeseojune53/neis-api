@@ -33,6 +33,8 @@ jobs:
         run: ./gradlew check
       - name: codecov gradle
         run: ./gradlew jacocoTestReport
+      - name: move directory
+        run: mv /lib/build /build
       - name: codecov upload
         run: bash <(curl -s https://codecov.io/bash)
         env:
