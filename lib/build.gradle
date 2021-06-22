@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'maven-publish'
     id 'signing'
+    id 'jacoco'
 }
 
 group = 'io.github.leeseojune53'
@@ -13,10 +14,6 @@ repositories {
 }
 
 dependencies {
-}
-
-test {
-    useJUnitPlatform()
 }
 
 task javadocJar(type: Jar) {
@@ -89,4 +86,15 @@ publishing {
 signing {
     useGpgCmd()
     sign(publishing.publications)
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
 }
