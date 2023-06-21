@@ -89,17 +89,19 @@ public class NeisApi {
      * @param day                                                       ex)20210616
      * @param scCode Neis calls this parameter "ATPT_OFCDC_SC_CODE"     ex)G10
      * @param schoolCode Neis calls this parameter "SD_SCHUL_CODE"      ex)7430310
+     * @param apiKey Neis calls this parameter "KEY"                    ex)794ba8d38c6820490216b865063c7b28
      * @return Meals breakfast, lunch, dinner
      * @throws ParseException if an error occurs during parsing
      */
-    public Meal getMealsByAbsoluteDay(String day, String scCode, String schoolCode) throws ParseException {
+    public Meal getMealsByAbsoluteDay(String day, String scCode, String schoolCode, String apiKey) throws ParseException {
         Document doc;
 
         try{
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(mealHost + "?ATPT_OFCDC_SC_CODE=" + scCode + "&SD_SCHUL_CODE=" + schoolCode
-                    + "&MLSV_YMD=" + day);
+                    + "&MLSV_YMD=" + day
+                    + "&KEY=" + apiKey);
         }catch(ParserConfigurationException | SAXException | IOException e){
             throw new ParseException();
         }
@@ -111,10 +113,11 @@ public class NeisApi {
      * @param day                                                       ex)10
      * @param scCode Neis calls this parameter "ATPT_OFCDC_SC_CODE"     ex)G10
      * @param schoolCode Neis calls this parameter "SD_SCHUL_CODE"      ex)7430310
+     * @param apiKey Neis calls this parameter "KEY"                    ex)794ba8d38c6820490216b865063c7b28
      * @return Meals breakfast, lunch, dinner
      * @throws ParseException if an error occurs during parsing
      */
-    public Meal getMealsByRelativeDay(int day, String scCode, String schoolCode) throws ParseException {
+    public Meal getMealsByRelativeDay(int day, String scCode, String schoolCode, String apiKey) throws ParseException {
         LocalDate date = LocalDate.now().plusDays(day);
         Document doc;
 
@@ -122,7 +125,8 @@ public class NeisApi {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(mealHost + "?ATPT_OFCDC_SC_CODE=" + scCode + "&SD_SCHUL_CODE=" + schoolCode
-                    + "&MLSV_YMD=" + date.toString().replace("-", ""));
+                    + "&MLSV_YMD=" + date.toString().replace("-", "")
+                    + "&KEY=" + apiKey);
         }catch(ParserConfigurationException | SAXException | IOException e){
             throw new ParseException();
         }
